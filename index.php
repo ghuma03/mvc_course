@@ -1,4 +1,3 @@
-<pre>
 <?php
 
 // CONECTANDO COM O BANCO DE DADOS ATRAVÉS DA CLASSE PDO
@@ -16,4 +15,27 @@ $stmt = $pdo->query("SELECT * FROM product");
 
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($products);
+?>
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Products</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        
+        <h1>Products</h1>
+		
+        <?php foreach ($products as $product): ?>
+        
+			<h2><?= htmlspecialchars($product["name"]) ?></h2>
+			<p><?= htmlspecialchars($product["description"]) ?></p>
+		
+        <?php endforeach; ?>
+            
+    </body>
+
+</html>

@@ -1,13 +1,13 @@
 <?php
 
-class Controller {
+class Products {
 	
 	// MÉTODOS PÚBLICOS EM CONTROLLERS SÃO CHAMADOS DE "ACTIONS"
 	public function index() {
 		
-		require "model.php";
+		require "src/models/product.php";
 
-		$products = (new Model)->getData();
+		$products = (new Product)->getData();
 
 		require "view.php";
 	}

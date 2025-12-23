@@ -9,6 +9,6 @@ class Products {
 
 		$products = (new Product)->getData();
 
-		require "view.php";
+		require "views/products_index.php";
 	}
 }

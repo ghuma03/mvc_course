@@ -1,21 +1,9 @@
 <?php
 
 $controller = $_GET["controller"];
-
-if ($controller === "products") {
-	require "src/controllers/products.php";
-	$controller_object = new Products;
-}
-elseif ($controller === "home") {
-	require "src/controllers/home.php";
-	$controller_object = new Home;
-}
+require "src/controllers/$controller.php";
 
 $action = $_GET["action"];
 
-if ($action === "index") {
-	$controller_object->index();
-}
-elseif ($action === "show") {
-	$controller_object->show();
-}
+$controller_obj = new $controller;
+	$controller_obj->$action();

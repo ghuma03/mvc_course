@@ -1,2 +1,0 @@
-No curso, o instrutor está ensinando a parte básica: criar um banco de dados (product_db) e recuperar as informações dele usando PDO para exibir com HTML.
-Agora, ele vai criar uma classe de Model para fazer a separação de funções entre os arquivos do framework.

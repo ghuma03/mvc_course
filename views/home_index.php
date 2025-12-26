@@ -1,1 +1,1 @@
-Here is the home index!
+Here is the home index page!

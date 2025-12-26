@@ -1,8 +1,10 @@
 <?php
 
-require "src/router.php";
+spl_autoload_register(function(string $class_name){
+	require "src/" . str_replace("\\", "/", $class_name) . ".php";
+});
 
-$router = new Router;
+$router = new Framework\Router;
 	$router->add("/home/index", array("controller" => "home", "action" => "index"));
 	$router->add("/products", array("controller" => "products", "action" => "index"));
 	$router->add("/", array("controller" => "home", "action" => "index"));
@@ -14,10 +16,8 @@ if ($params === false) {
 	die();
 }
 
-$controller = $params["controller"];
+$controller = "App\Controllers\\".ucwords($params["controller"]);
 $action = $params["action"];
-
-require "src/controllers/$controller.php";
 
 $controller_obj = new $controller;
 	$controller_obj->$action();

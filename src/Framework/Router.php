@@ -12,12 +12,18 @@ class Router {
 	
 	public function match(string $path): array|bool {
 		
-		foreach ($this->routes as $route) {
-			
-			if ($route["path"] === $path) {
-				return $route["params"];
-			}
+		$pattern = "#^/(?<controller>[a-z]+)/(?<action>[a-z]+)$#";
+		
+		if (preg_match($pattern, $path, $matches)) {
+			return array_filter($matches, "is_string", ARRAY_FILTER_USE_KEY);
 		}
+		
+//		foreach ($this->routes as $route) {
+//			
+//			if ($route["path"] === $path) {
+//				return $route["params"];
+//			}
+//		}
 		
 		return false;
 	}
